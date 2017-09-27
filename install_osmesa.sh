@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script install OSMesa with Gallium llvmpipe.
+# This script installs OSMesa with Gallium llvmpipe.
 # First, "sed" is executed to prevent some errors.
 # Second, "autogen.sh" is executed with the flugs.
 # Finally, "make -j8" and "make install" are executed.
@@ -25,4 +25,3 @@ bash autogen.sh --disable-xvmc \
 
 make -j8
 make install
-
