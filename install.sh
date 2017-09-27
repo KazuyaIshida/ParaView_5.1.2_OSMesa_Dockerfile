@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# This script is for compiling ParaView with OSMesa, MPICH, Python and FFmpeg.
-# First, makefile is created by cmake with flags.
-# Then, "make -j8" and "make -j8 install" are executed.
+# This script compiles ParaView (v5.1.2) with OSMesa Libraries.
+# First, Cmake creates the Makefile in accordance with the flags.
+# Then, "make -j8" and "make install" are executed.
 
 cmake -D BUILD_DOCUMENTATION:BOOL=OFF \
       -D BUILD_EXAMPLES:BOOL=OFF \
@@ -15,18 +15,16 @@ cmake -D BUILD_DOCUMENTATION:BOOL=OFF \
       -D PARAVIEW_ENABLE_COPROCESSING:BOOL=ON \
       -D PARAVIEW_INSTALL_DEVELOPMENT_FILES:BOOL=ON \
       -D PARAVIEW_USE_VISITBRIDGE:BOOL=ON \
-      -D PARAVIEW_USE_BOOST:BOOL=ON \
-      -D OPENGL_INCLUDE_DIR=/mesa-12.0.3/include \
+      -D OPENGL_INCLUDE_DIR=/usr/include \
       -D OPENGL_xmesa_INCLUDE_DIR= \
       -D OPENGL_gl_LIBRARY= \
-      -D OPENGL_glu_LIBRARY=/lib64/libGLU.so \
+      -D OPENGL_glu_LIBRARY= \
       -D VTK_RENDERING_BACKEND=OpenGL2 \
       -D VTK_USE_X:BOOL=OFF \
       -D VTK_OPENGL_HAS_OSMESA:BOOL=ON \
       -D VTK_USE_OFFSCREEN:BOOL=ON \
       -D OSMESA_INCLUDE_DIR=/usr/include \
-      -D OSMESA_LIBRARY=/mesa-12.0.3/lib/gallium/libOSMesa.so \
-      -D PARAVIEW_ENABLE_PYTHON:BOOL=ON \
+      -D OSMESA_LIBRARY=/lib/libOSMesa.so \
       -D PYTHON_LIBRARY=/usr/lib64/libpython2.7.so \
       -D PYTHON_INCLUDE_DIR=/usr/include/python2.7 \
       -D PYTHON_EXECUTABLE=/usr/bin/python \
@@ -44,6 +42,5 @@ cmake -D BUILD_DOCUMENTATION:BOOL=OFF \
       /root/ParaView_src
 
 make -j8
-
-make -j8 install
+make install
 
