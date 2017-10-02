@@ -1,4 +1,4 @@
-# ParaView (v5.1.2) with OSMesa
+# Dockerfile of ParaView (v5.1.2) with OSMesa
 This image has ParaView rendering servers (pvserver, pvrenderserver, pvdataserver, etc.).
 - OS is CentOS (latetst).
 - The install directory is /usr/local/ParaView_5.1.2
